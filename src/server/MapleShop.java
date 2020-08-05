@@ -236,6 +236,7 @@ public class MapleShop {
     }
 
     public static MapleShop createFromDB(int id, boolean isShopId) {
+        System.out.println("Creating shop: " + id + ", " + isShopId);
         MapleShop ret = null;
         int shopId;
         try {

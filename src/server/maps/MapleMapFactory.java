@@ -135,6 +135,13 @@ public class MapleMapFactory {
     }
 
     public static MapleMap loadMapFromWz(int mapid, int world, int channel, EventInstanceManager event) {
+        if (mapid == 108010200) {
+            try {
+                throw new RuntimeException("Debug maps");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         MapleMap map;
         
         String mapName = getMapName(mapid);

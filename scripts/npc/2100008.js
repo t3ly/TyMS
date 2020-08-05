@@ -57,7 +57,7 @@ function action(mode, type, selection) {
                                         }
                                 }
                                 if (cm.getChar().getGender() == 1) {
-                                        for(var i = 0; i < fface.length; i++) {
+                                        for(var i = 0; i < face.length; i++) {
                                                 pushIfItemExists(facenew, fface[i] + cm.getChar().getFace()
                                                  % 1000 - (cm.getChar().getFace()
                                                  % 100));

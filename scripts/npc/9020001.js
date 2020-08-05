@@ -196,7 +196,7 @@ function action(mode, type, selection) {
                                 else {
                                         var accept = rectangleStages(eim, stgProperty, stgCombos, stgAreas);
 
-                                        if(accept) {
+                                        if(cm.getPlayer().isGM() || accept) {
                                                 clearStage(stage, eim, curMap);
                                                 cm.sendNext("Please hurry on to the next stage, the portal opened!");
                                         }
@@ -226,7 +226,7 @@ function action(mode, type, selection) {
                                 else {
                                         var accept = rectangleStages(eim, stgProperty, stgCombos, stgAreas);
 
-                                        if(accept) {
+                                        if(cm.getPlayer().isGM() || accept) {
                                                 clearStage(stage, eim, curMap);
                                                 cm.sendNext("Please hurry on to the next stage, the portal opened!");
                                         }
@@ -256,7 +256,7 @@ function action(mode, type, selection) {
                                 else {
                                         var accept = rectangleStages(eim, stgProperty, stgCombos, stgAreas);
 
-                                        if(accept) {
+                                        if(cm.getPlayer().isGM() || accept) {
                                                 clearStage(stage, eim, curMap);
                                                 cm.sendNext("Please hurry on to the next stage, the portal opened!");
                                         }

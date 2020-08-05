@@ -388,16 +388,17 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
 		getPlayer().resetStats();
 	}
         
-        public void openShopNPC(int id) {
-            MapleShop shop = MapleShopFactory.getInstance().getShop(id);
-            
-            if (shop != null) {
-                shop.sendShop(c);
-            } else {    // check for missing shopids thanks to resinate
-                FilePrinter.printError(FilePrinter.NPC_UNCODED, "Shop ID: " + id + " is missing from database.");
-                MapleShopFactory.getInstance().getShop(11000).sendShop(c);
-            }
+    public void openShopNPC(int id) {
+        System.out.println("openShopNPC: " + id);
+        MapleShop shop = MapleShopFactory.getInstance().getShop(id);
+        
+        if (shop != null) {
+            shop.sendShop(c);
+        } else {    // check for missing shopids thanks to resinate
+            FilePrinter.printError(FilePrinter.NPC_UNCODED, "Shop ID: " + id + " is missing from database.");
+            MapleShopFactory.getInstance().getShop(11000).sendShop(c);
         }
+    }
 
 	public void maxMastery() {
 		for (MapleData skill_ : MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/" + "String.wz")).getData("Skill.img").getChildren()) {

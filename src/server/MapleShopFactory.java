@@ -40,7 +40,9 @@ public class MapleShopFactory {
     private Map<Integer, MapleShop> npcShops = new HashMap<Integer, MapleShop>();
 
     private MapleShop loadShop(int id, boolean isShopId) {
+        System.out.println("Loading shop: " + id + ", " + isShopId);
         MapleShop ret = MapleShop.createFromDB(id, isShopId);
+        Thread.currentThread().getStackTrace();
         if (ret != null) {
             shops.put(ret.getId(), ret);
             npcShops.put(ret.getNpcId(), ret);
