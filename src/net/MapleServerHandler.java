@@ -75,12 +75,14 @@ public class MapleServerHandler extends IoHandlerAdapter {
     private ScheduledFuture<?> idleManager = null;
     
     public MapleServerHandler() {
+        System.out.println("ServerHandle ctor 1");
         this.processor = PacketProcessor.getProcessor(-1, -1);
         
         idleManagerTask();
     }
 
     public MapleServerHandler(int world, int channel) {
+            System.out.println("ServerHandle ctor 2");
         this.processor = PacketProcessor.getProcessor(world, channel);
         this.world = world;
         this.channel = channel;
@@ -90,6 +92,7 @@ public class MapleServerHandler extends IoHandlerAdapter {
     
     @Override
     public void exceptionCaught(IoSession session, Throwable cause) {
+        System.out.println("ServerHandler exception caught");
         if (cause instanceof IOException) {
             closeMapleSession(session);
         } else {
@@ -102,6 +105,7 @@ public class MapleServerHandler extends IoHandlerAdapter {
     }
 
     private boolean isLoginServerHandler() {
+        System.out.println("isLoginServerHandler");
         return channel == -1 && world == -1;
     }
     
@@ -178,6 +182,7 @@ public class MapleServerHandler extends IoHandlerAdapter {
     
     @Override
     public void sessionClosed(IoSession session) throws Exception {
+        System.out.println("Closing session");
         closeMapleSession(session);
         super.sessionClosed(session);
     }
@@ -205,6 +210,7 @@ public class MapleServerHandler extends IoHandlerAdapter {
     
     @Override
     public void messageSent(IoSession session, Object message) {
+        System.out.println("messageSent " + message);
     	byte[] content = (byte[]) message;
     	SeekableLittleEndianAccessor slea = new GenericSeekableLittleEndianAccessor(new ByteArrayByteStream(content));
     	slea.readShort(); //packetId
